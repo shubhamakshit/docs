@@ -41,9 +41,9 @@ source ~/.bashrc
 
 ### First Steps
 
-Even though the **Windows** and **Linux** post install scripts cnfigure the settings to some extent, you might want to have a look at the settings or as we say **prefrences** stored in `prefrences.json`
+Even though the **Windows** and **Linux** post install scripts cnfigure the settings to some extent, you might want to have a look at the settings or as we say **preferences** stored in `prefrences.json`
 
-```json prefrences.json
+```json preferences.json
 {
   "cloudfront_id": "d1d34p8vz63oiq",
   "patched": false,
@@ -99,7 +99,7 @@ Even though the **Windows** and **Linux** post install scripts cnfigure the sett
         As of today pwdl requires **ffmpeg** and **mp4decrypt** only. In past we had to depend on third party mpeg-dash downloaders like **vsd** or **nm3**.
       </Update>
       <Info>
-        \*\*Tip: \*\*you can use \*\*pwdl-variables \*\*for more granular control
+        Tip: you can use `pwdl-variables` for more granular control
 
         - `$script` : The roor folder of pwdlv3
         - `$home` : The home folder (equivalent to **~** in linux)
@@ -113,5 +113,8 @@ Even though the **Windows** and **Linux** post install scripts cnfigure the sett
   </ResponseField>
   <ResponseField name="webui-port" type="int:port" default="5000">
     The webui will start at this port
+  </ResponseField>
+  <ResponseField name="token" type="object" required>
+    A valid token is required for pwdl to function. use flag `--ignore-token`  to bypass it
   </ResponseField>
 </Accordion>
