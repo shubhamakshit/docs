@@ -96,7 +96,7 @@ Even though the **Windows** and **Linux** post install scripts cnfigure the sett
     </ResponseField>
     <ResponseField name="<executable>" type="path:string">
       <Update label="06/12/2025" description>
-        As of today pwdl requires \*\*ffmpeg \*\*and **mp4decrypt** only. In past we had to depend on third party mpeg-dash downloaders like **vsd** or **nm3**.
+        As of today pwdl requires **ffmpeg** and **mp4decrypt** only. In past we had to depend on third party mpeg-dash downloaders like **vsd** or **nm3**.
       </Update>
       <Info>
         \*\*Tip: \*\*you can use \*\*pwdl-variables \*\*for more granular control
@@ -104,7 +104,7 @@ Even though the **Windows** and **Linux** post install scripts cnfigure the sett
         - `$script` : The roor folder of pwdlv3
         - `$home` : The home folder (equivalent to **~** in linux)
       </Info>
-      \*\*mp4decrypt \*\*is mostly installed by the post install script hence the default value of `$script/bin/mp4decrypt`
+      **mp4decrypt** is mostly installed by the post install script hence the default value of `$script/bin/mp4decrypt`
     </ResponseField>
   </ResponseField>
 </Accordion>
