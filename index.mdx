@@ -65,7 +65,7 @@ Even though the **Windows** and **Linux** post install scripts cnfigure the sett
 }
 ```
 
-<Accordion title="Prefrences - [OPTIONS]" icon="code">
+<Accordion title="Prefrences " description="Only few important ones have been discussed below" icon="code" iconType="solid">
   <ParamField path="user_id" type="string">
     <Danger>
       set user_id as "no_acc" if you dont want Syncer features. To know more about Syncer click here.
@@ -90,7 +90,7 @@ Even though the **Windows** and **Linux** post install scripts cnfigure the sett
     <ResponseField name="tmpDir" type="path:string">
       The default directory where temporary files will be stored. Default values are given as below
 
-      \*\*Linux: /tmp \*\*
+      **Linux: /tmp**
 
       **Windows: %temp%**
     </ResponseField>
@@ -105,21 +105,13 @@ Even though the **Windows** and **Linux** post install scripts cnfigure the sett
         - `$home` : The home folder (equivalent to **~** in linux)
       </Info>
       **mp4decrypt** is mostly installed by the post install script hence the default value of `$script/bin/mp4decrypt`
+
+      <ResponseField name="webui-del-time" type="int:minutes" default="45">
+        If a download is requested by webui after this mcuh amountof time the all older files are deleted to conserve space.
+      </ResponseField>
     </ResponseField>
   </ResponseField>
+  <ResponseField name="webui-port" type="int:port" default="5000">
+    The webui will start at this port
+  </ResponseField>
 </Accordion>
-
-<CardGroup cols={2}>
-  <Card title="Customize Style" icon="palette" href="https://mintlify.com/docs/settings/global">
-    Customize your docs to your company's colors and brands
-  </Card>
-  <Card title="Reference APIs" icon="code" href="https://mintlify.com/docs/api-playground/openapi">
-    Automatically generate endpoints from an OpenAPI spec
-  </Card>
-  <Card title="Add Components" icon="screwdriver-wrench" href="https://mintlify.com/docs/content/components/accordions">
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card title="Get Inspiration" icon="stars" href="https://mintlify.com/customers">
-    Check out our showcase of our favorite documentation
-  </Card>
-</CardGroup>
