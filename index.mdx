@@ -54,7 +54,6 @@ Even though the **Windows** and **Linux** post install scripts cnfigure the sett
   "video_id":"",
   "tmpDir": "/tmp",
   "verbose": false,
-  "vsd": "$script/bin/vsd",
   "ffmpeg": "",
   "mp4decrypt": "$script/bin/mp4decrypt",
   "webui-del-time": 45,
@@ -66,26 +65,52 @@ Even though the **Windows** and **Linux** post install scripts cnfigure the sett
 }
 ```
 
-<ParamField path="user_id" type="string">
-  <Danger>
-    set user_id as "no_acc" if you dont want Syncer features. To know more about Syncer click here.
-  </Danger>
-  This user_id  is the name of your account within the pwdl database. 
-</ParamField>
+<Accordion title="Prefrences - [OPTIONS]" icon="code">
+  <ParamField path="user_id" type="string">
+    <Danger>
+      set user_id as "no_acc" if you dont want Syncer features. To know more about Syncer click here.
+    </Danger>
+    This user_id  is the name of your account within the pwdl database.
+  </ParamField>
+  <ResponseField name="user_update_index" type="int">
+    The current iteration of update that the user is in currently. Every time the user logins via pwdl cli, this index is incremented by one.
 
-<ResponseField name="user_update_index" type="int">
-  The current iteration of update that the user is in currently. Every time the user logins via pwdl cli, this index is incremented by one.
+    <Info>
+      Use \*\*-1 \*\*to force update the token from the database.
+    </Info>
+    <Warning>
+      As of the latest update in penpencil api, only users who had purchased a course/batch can view them
+    </Warning>
+    <ResponseField name="batch_name" type="string" default='""'>
+      Name of the batch that will be used to check if the token in valid/acceptable.
+    </ResponseField>
+    <ResponseField name="video_id" type="string">
+      Id of the video that will be used to check if the token in valid/acceptable.
+    </ResponseField>
+    <ResponseField name="tmpDir" type="path:string">
+      The default directory where temporary files will be stored. Default values are given as below
 
-  <Info>
-    Use **-1 **to force update the token from the database.
-  </Info>
-</ResponseField>
+      \*\*Linux: /tmp \*\*
 
+      **Windows: %temp%**
+    </ResponseField>
+    <ResponseField name="<executable>" type="path:string">
+      <Update label="06/12/2025" description>
+        As of today pwdl requires \*\*ffmpeg \*\*and **mp4decrypt** only. In past we had to depend on third party mpeg-dash downloaders like **vsd** or **nm3**.
+      </Update>
+      <Info>
+        \*\*Tip: \*\*you can use \*\*pwdl-variables \*\*for more granular control
+
+        - `$script` : The roor folder of pwdlv3
+        - `$home` : The home folder (equivalent to **~** in linux)
+      </Info>
+      \*\*mp4decrypt \*\*is mostly installed by the post install script hence the default value of `$script/bin/mp4decrypt`
+    </ResponseField>
+  </ResponseField>
+</Accordion>
 
 <CardGroup cols={2}>
   <Card title="Customize Style" icon="palette" href="https://mintlify.com/docs/settings/global">
-    
-
     Customize your docs to your company's colors and brands
   </Card>
   <Card title="Reference APIs" icon="code" href="https://mintlify.com/docs/api-playground/openapi">
