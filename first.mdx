@@ -1,0 +1,83 @@
+---
+title: "First Steps"
+description: "Take in your baby steps"
+---
+### First Steps
+
+Even though the **Windows** and **Linux** post install scripts cnfigure the settings to some extent, you might want to have a look at the settings or as we say **preferences** stored in `prefrences.json`
+
+```json preferences.json
+{
+"cloudfront_id": "d1d34p8vz63oiq",
+"patched": false,
+"user_id": "temp",
+"user_update_index": -1,
+"os-info": "linux",
+"batch_name":"",
+"video_id":"",
+"tmpDir": "/tmp",
+"verbose": false,
+"ffmpeg": "",
+"mp4decrypt": "$script/bin/mp4decrypt",
+"webui-del-time": 45,
+"webui": true,
+"webui-port": "5000",
+"token": {
+"l": 1488
+}
+}
+```
+
+<Accordion title="Prefrences " description="Only few important ones have been discussed below" icon="code" iconType="solid">
+<ParamField path="user_id" type="string">
+<Danger>
+set user_id as "no_acc" if you dont want Syncer features. To know more about Syncer click here.
+</Danger>
+This user_id is the name of your account within the pwdl database.
+</ParamField>
+<ResponseField name="user_update_index" type="int">
+The current iteration of update that the user is in currently. Every time the user logins via pwdl cli, this index is incremented by one.
+
+<Info>
+Use \*\*-1 \*\*to force update the token from the database.
+</Info>
+<Warning>
+As of the latest update in penpencil api, only users who had purchased a course/batch can view them
+</Warning>
+<ResponseField name="batch_name" type="string" default='""'>
+Name of the batch that will be used to check if the token in valid/acceptable.
+</ResponseField>
+<ResponseField name="video_id" type="string">
+Id of the video that will be used to check if the token in valid/acceptable.
+</ResponseField>
+<ResponseField name="tmpDir" type="path:string">
+The default directory where temporary files will be stored. Default values are given as below
+
+**Linux: /tmp**
+
+**Windows: %temp%**
+</ResponseField>
+<ResponseField name="<executable>" type="path:string">
+<Update label="06/12/2025" description>
+As of today pwdl requires **ffmpeg** and **mp4decrypt** only. In past we had to depend on third party mpeg-dash downloaders like **vsd** or **nm3**.
+</Update>
+<Info>
+Tip: you can use `pwdl-variables` for more granular control
+
+- `$script` : The roor folder of pwdlv3
+- `$home` : The home folder (equivalent to **~** in linux)
+</Info>
+**mp4decrypt** is mostly installed by the post install script hence the default value of `$script/bin/mp4decrypt`
+
+<ResponseField name="webui-del-time" type="int:minutes" default="45">
+If a download is requested by webui after this mcuh amountof time the all older files are deleted to conserve space.
+</ResponseField>
+</ResponseField>
+</ResponseField>
+<ResponseField name="webui-port" type="int:port" default="5000">
+The webui will start at this port
+</ResponseField>
+<ResponseField name="token" type="object" required>
+A valid token is required for pwdl to function. use flag `--ignore-token` to bypass it
+</ResponseField>
+</Accordion>
