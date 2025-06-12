@@ -15,16 +15,77 @@ description: "This project started way back in 2023 as pwdl. It was then merely 
 
 What you need
 
-- A **Linux** or a **Windows** machine. 
+- A **Linux** or a **Windows** machine.
 - A stable internet connection.
-- **Admin** access shouls be avaiable for **Windows **for using one liner installation.
+- **Admin** access shouls be avaiable for **Windows** for using one liner installation.
 
-## Make it yours
+### Windows
 
-Update your docs to your brand and add valuable content for the best user conversion.
+Note that this works for **Windows 10\+** with **Admin access.**
+
+```powershell
+irm https://raw.githubusercontent.com/shubhamakshit/pwdlv3_assets/main/dl.pwdlv3.ps1 | iex
+```
+
+### Linux
+
+Linux : **This is the Way.**
+
+```bash
+git clone https://github.com/shubhamakshit/pwdlv3.git
+cd pwdlv3
+chmod +x ./setup.sh
+./setup.sh -f # -f means ffmpeg ; (ffmpeg binary in PATH is given preference)
+source ~/.bashrc
+```
+
+### First Steps
+
+Even though the **Windows** and **Linux** post install scripts cnfigure the settings to some extent, you might want to have a look at the settings or as we say **prefrences** stored in `prefrences.json`
+
+```json prefrences.json
+{
+  "cloudfront_id": "d1d34p8vz63oiq",
+  "patched": false,
+  "user_id": "temp",
+  "user_update_index": -1,
+  "os-info": "linux",
+  "batch_name":"",
+  "video_id":"",
+  "tmpDir": "/tmp",
+  "verbose": false,
+  "vsd": "$script/bin/vsd",
+  "ffmpeg": "",
+  "mp4decrypt": "$script/bin/mp4decrypt",
+  "webui-del-time": 45,
+  "webui": true,
+  "webui-port": "5000",
+  "token": {
+    "l": 1488
+  }
+}
+```
+
+<ParamField path="user_id" type="string">
+  <Danger>
+    set user_id as "no_acc" if you dont want Syncer features. To know more about Syncer click here.
+  </Danger>
+  This user_id  is the name of your account within the pwdl database. 
+</ParamField>
+
+<ResponseField name="user_update_index" type="int">
+  The current iteration of update that the user is in currently. Every time the user logins via pwdl cli, this index is incremented by one.
+
+  <Info>
+    Use **-1 **to force update the token from the database.
+  </Info>
+</ResponseField>
+
 
 <CardGroup cols={2}>
   <Card title="Customize Style" icon="palette" href="https://mintlify.com/docs/settings/global">
+    
+
     Customize your docs to your company's colors and brands
   </Card>
   <Card title="Reference APIs" icon="code" href="https://mintlify.com/docs/api-playground/openapi">
