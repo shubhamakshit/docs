@@ -3,6 +3,38 @@ title: 'Quickstart'
 description: 'Your first pwdl Download'
 ---
 
+## Setting up
+
+What you need
+
+- A **Linux** or a **Windows** machine.
+- A stable internet connection.
+- **Admin** access shouls be avaiable for **Windows** for using one liner installation.
+
+### Windows
+
+Note that this works for **Windows 10\+** with **Admin access.**
+
+```powershell
+irm https://raw.githubusercontent.com/shubhamakshit/pwdlv3_assets/main/dl.pwdlv3.ps1 | iex
+```
+
+<Info>
+  Note that sometimes you may need to run the script **twice**.
+</Info>
+
+### Linux
+
+Linux : **This is the Way.**
+
+```bash
+git clone https://github.com/shubhamakshit/pwdlv3.git
+cd pwdlv3
+chmod +x ./setup.sh
+./setup.sh -f # -f means ffmpeg ; (ffmpeg binary in PATH is given preference)
+source ~/.bashrc
+```
+
 ### First Steps
 
 Even though the **Windows** and **Linux** post install scripts cnfigure the settings to some extent, you might want to have a look at the settings or as we say **preferences** stored in `prefrences.json`
