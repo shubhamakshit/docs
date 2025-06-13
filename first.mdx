@@ -101,14 +101,30 @@ If you are a **completetly new user** you must run the following command.
   ```
 </Accordion>
 
-<Accordion title="Webui" icon="browser">
+<Accordion title="Webui" defaultOpen icon="browser">
   ```bash
   pwdl --verbose --webui 
   ```
 
+  <Warning>
+    pwdl --webui is a misnomer. It's actually the backend server
+  </Warning>
   ![20250613_195238.jpg](/images/20250613_195238.jpg)
 
   You must see a output like this.
 
-  Now [Open](http://localhost:5000) the Webui.
+  Now [Open](https://pwdl-webui.vercel.app) the Webui.
+
+  <Steps>
+    <Step title="FInd your batch name" icon="id-badge">
+      1. Log in into the [pw.live](http://pw.live) website for once.
+
+         <Warning>
+           You'll need to \*\*log \*\*in again after this step
+         </Warning>
+      2. Install [Tampermonkey](https://www.tampermonkey.net) for your browser.
+      3. Install the [Pw-Heck-Userscript](https://gist.github.com/shubhamakshit/0a678e8f565c57c7d2fe6dfbae93657f/raw/768d1e8e2e6003dace27f4655ca4b95c2e556758/PW-Heck-UserScript.user.js).
+      4. 
+    </Step>
+  </Steps>
 </Accordion>
