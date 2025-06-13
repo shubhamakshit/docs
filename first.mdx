@@ -116,15 +116,46 @@ If you are a **completetly new user** you must run the following command.
   Now [Open](https://pwdl-webui.vercel.app) the Webui.
 
   <Steps>
-    <Step title="FInd your batch name" icon="id-badge">
+    <Step title="FInd your batch name" icon="id-badge" stepNumber={1}>
       1. Log in into the [pw.live](http://pw.live) website for once.
 
          <Warning>
-           You'll need to \*\*log \*\*in again after this step
+           You'll need to **log in** again after this step
          </Warning>
       2. Install [Tampermonkey](https://www.tampermonkey.net) for your browser.
       3. Install the [Pw-Heck-Userscript](https://gist.github.com/shubhamakshit/0a678e8f565c57c7d2fe6dfbae93657f/raw/768d1e8e2e6003dace27f4655ca4b95c2e556758/PW-Heck-UserScript.user.js).
-      4. 
+      4. Now in the pw website you should have something like this.
+
+         ![Screenshot_20250613_201117_Firefox.jpg](/1000159202.jpg)
+      5. Open any video and click **Copy Video Data**
+      6. Something like this will be copied to your clipboard. Update these setting in your `preferences.json`
+
+         ```json
+          "video_id": "6840522a8f15c4cc311d5d8c",
+          "batch_name": "yakeen-neet-2-0-2026-854543"
+         ```
+    </Step>
+    <Step title="Reload pwdl backend webui" icon="arrows-rotate" stepNumber={2}>
+      Close the current terminal session and run the following command again.
+
+      ```bash
+      pwdl --webui
+      ```
+    </Step>
+    <Step title="Webui Configuration" icon="gear" stepNumber={3}>
+      1. Go to [Webui-Settings](https://pwdl-webui.vercel.app/settings)
+      2. Click on **Web Settings**
+      3. Click on **Edit All**
+      4.  Look for something like
+
+         ![1000159203 Jp](/images/1000159203.jpg)
+
+         Click on <Icon icon="circle-plus" iconType="regular" /> (Add) icon and paste the `batch_name` 
+      5. From the dropdown menu select the newly added batch
+      6. <Icon icon="floppy-disk" /> Save the Settings
+    </Step>
+    <Step title="Done!" icon="party-horn" stepNumber={4}>
+      Go to  [library](https://pwdl-webui.vercel.app/boss) to have some fun\!
     </Step>
   </Steps>
 </Accordion>
